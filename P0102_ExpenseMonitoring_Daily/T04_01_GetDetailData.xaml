@@ -1,0 +1,1731 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CompareData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="i_config" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+    <x:Property Name="i_dr_dataRow" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="o_str_stPlace" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_ndPlace" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_psPlace" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_bizPurp" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_bizID" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_bizName" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_vstDept" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_vstPlace" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_fromDate" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_toDate" Type="OutArgument(x:String)" />
+    <x:Property Name="i_str_payDate" Type="InArgument(x:String)" />
+    <x:Property Name="o_bol_noData" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="o_str_tripExp" Type="OutArgument(x:String)" />
+    <x:Property Name="o_str_tripMealExp" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1158,3369</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="CompareData" sap:VirtualizedContainerService.HintSize="1168,3304" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_checkName" />
+      <Variable x:TypeArguments="x:String" Name="str_employer" />
+      <Variable x:TypeArguments="x:Int32" Name="int_searchEmpRow" />
+      <Variable x:TypeArguments="x:String" Name="str_datePattern" />
+      <Variable x:TypeArguments="x:Int32" Name="int_empTableRow" />
+      <Variable x:TypeArguments="x:Boolean" Name="bol_searchEmpPop" />
+      <Variable x:TypeArguments="x:Boolean" Name="bol_checkEmp" />
+      <Variable x:TypeArguments="x:String" Name="str_empLoopCnt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1126,3216" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="628,2988" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="586,163" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">str_employer</CSharpReference>
+                    </OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_129">i_dr_dataRow["사원명"].ToString()</CSharpValue>
+                    </InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_61">str_datePattern</CSharpReference>
+                    </OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">@"\d{4}-\d{2}-\d{2} ~ \d{4}-\d{2}-\d{2}"</CSharpValue>
+                    </InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Boolean">
+                      <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_123">o_bol_noData</CSharpReference>
+                    </OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MultipleAssign>
+          <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="날짜값을 yyyyMMdd 로 변환" Code="i_str_payDate = DateTime.ParseExact(i_str_payDate, &quot;M/d/yyyy&quot;, null).ToString(&quot;yyyyMMdd&quot;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="586,196" sap2010:WorkflowViewState.IdRef="InvokeCode_4" Language="CSharp">
+            <ui:InvokeCode.Arguments>
+              <InOutArgument x:TypeArguments="x:String" x:Key="i_str_payDate">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_120">i_str_payDate</CSharpReference>
+              </InOutArgument>
+            </ui:InvokeCode.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeCode>
+          <uix:NApplicationCard sap2010:Annotation.AnnotationText="경영관리시스템 -&gt; 회계업무" AttachMode="ByInstance" DisplayName="Use Browser Chrome: 경영관리:국내ㆍ국외출장 복명 현황" sap:VirtualizedContainerService.HintSize="586,2461" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="d602d119-3113-4fbb-8d5f-a797539d1c79" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence sap:VirtualizedContainerService.HintSize="552,2173" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="str_tripList" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,90" sap2010:WorkflowViewState.IdRef="WriteLine_32">
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">$"출장기간 입력값 : {i_str_payDate}"</CSharpValue>
+                    </InArgument>
+                  </WriteLine>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="출장기간 시작일자(yyyyMMdd) -&gt; 카드사용일자 입력" DisplayName="Type Into 'INPUT  dp1699434033720'" EmptyField="True" sap:VirtualizedContainerService.HintSize="510,94" sap2010:WorkflowViewState.IdRef="TypeInto_1">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="79740b9e-c830-4632-80d2-12c42f12cc7f" InformativeScreenshot="a7fcdce6ed055b241f182cbdc09ef8da" Selector="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dp*' tableRow='2' tag='INPUT' aaname='신청일자From' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                    <ui:TypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">i_str_payDate</CSharpValue>
+                      </InArgument>
+                    </ui:TypeInto.Text>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="출장기간 종료일자(yyyyMMdd) -&gt; 카드사용일자 입력" DisplayName="Type Into 'INPUT  dp1699434033721'" EmptyField="True" sap:VirtualizedContainerService.HintSize="510,94" sap2010:WorkflowViewState.IdRef="TypeInto_2">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4f96a99b-7fe8-4a15-9441-481aae24fb26" InformativeScreenshot="346bcae70a8394a35f437aa040789c56" Selector="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dp*' tableRow='2' tag='INPUT' aaname='신청일자To' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                    <ui:TypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">i_str_payDate</CSharpValue>
+                      </InArgument>
+                    </ui:TypeInto.Text>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="직원명 입력" DisplayName="Type Into 'INPUT  empNm'" EmptyField="True" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="TypeInto_3">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="338997bd-a71d-4db4-9480-631ea3e50194" InformativeScreenshot="58523eba94776d99dc52578181de2c66" Selector="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='empNm' tableRow='2' tag='INPUT' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                    <ui:TypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">str_employer+ "[k(enter)]"</CSharpValue>
+                      </InArgument>
+                    </ui:TypeInto.Text>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="Delay_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Delay>
+                  <ui:UiElementExists sap2010:Annotation.AnnotationText="직원검색 팝업" DisplayName="Element Exists 'pane'" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                    <ui:UiElementExists.Exists>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_50">bol_searchEmpPop</CSharpReference>
+                      </OutArgument>
+                    </ui:UiElementExists.Exists>
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3d511ac3-4a9c-4509-865c-5b105c09c030" InformativeScreenshot="b6ed1182c53275619c9ab63939c204ef" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='경영관리:직원검색*' /&gt;&lt;ctrl name='경영관리:직원검색*' role='pane' /&gt;&lt;ctrl idx='2' role='pane' /&gt;" TimeoutMS="5000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <If sap2010:Annotation.AnnotationText="직원 검색 팝업이 발생할 경우 사번을 체크해야함" sap:VirtualizedContainerService.HintSize="510,94" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">bol_searchEmpPop</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="704,2105" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'chrome.exe 경영관리:직원검색'" sap:VirtualizedContainerService.HintSize="662,2017" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="4c27541104c04aecfcf969ba81c5324a" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='경영관리:직원검색*' /&gt;">
+                          <ui:WindowScope.Body>
+                            <ActivityAction x:TypeArguments="x:Object">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="628,1830" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="str_srchLoopCnt" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="586,90" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="직원검색창 생성.." />
+                                <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="총 검색된 건수" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="586,83" sap2010:WorkflowViewState.IdRef="GetValue_8">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="25439ccb-9092-4d2f-9bd8-5389d51917bf" InformativeScreenshot="2969961649e99619bef316b105c90514" Selector="&lt;html app='chrome.exe' htmlwindowname='SearchEmp' title='경영관리:직원검색' /&gt;&lt;webctrl aria-role='row' parentid='pg_srchEmpList_pager' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='DIV' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_54">str_srchLoopCnt</CSharpReference>
+                                    </OutArgument>
+                                  </ui:GetValue.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:GetValue>
+                                <ui:Matches sap2010:Annotation.AnnotationText="정규식으로 숫자만 추출" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="586,83" sap2010:WorkflowViewState.IdRef="Matches_3" IsBuilderTabModified="False" Pattern="\d" RegexOption="IgnoreCase, Compiled">
+                                  <ui:Matches.FirstMatch>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_55">str_srchLoopCnt</CSharpReference>
+                                    </OutArgument>
+                                  </ui:Matches.FirstMatch>
+                                  <ui:Matches.Input>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54">str_srchLoopCnt</CSharpValue>
+                                    </InArgument>
+                                  </ui:Matches.Input>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:Matches>
+                                <Assign sap2010:Annotation.AnnotationText="직원검색 팝업에서 직원번호를 찾는 row 기본 값" sap:VirtualizedContainerService.HintSize="586,113" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">
+                                      <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_52">int_searchEmpRow</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">2</InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                                <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="직원선택 테이블에서 알맞은 직원을 선택" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="586,1213" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+                                  <ui:InterruptibleDoWhile.Body>
+                                    <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="552,1046" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="str_empID" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="직원번호(사번) 확인" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="510,138" sap2010:WorkflowViewState.IdRef="GetValue_10">
+                                        <ui:GetValue.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d9bb8b8a-7498-4908-9730-42ef6372796b" InformativeScreenshot="caf4319f80c86554aa0bc18a2d4bd339">
+                                            <ui:Target.Selector>
+                                              <InArgument x:TypeArguments="x:String">
+                                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_51">string.Format("&lt;html app='chrome.exe' htmlwindowname='SearchEmp' title='경영관리:직원검색' /&gt;&lt;webctrl id='srchEmpList' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='{0}' tag='TD' /&gt;", int_searchEmpRow)</CSharpValue>
+                                              </InArgument>
+                                            </ui:Target.Selector>
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetValue.Target>
+                                        <ui:GetValue.Value>
+                                          <OutArgument x:TypeArguments="x:String">
+                                            <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_57">str_empID</CSharpReference>
+                                          </OutArgument>
+                                        </ui:GetValue.Value>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:GetValue>
+                                      <If sap2010:Annotation.AnnotationText="직원번호와 조회하는 사번이 같은지 확인" sap:VirtualizedContainerService.HintSize="510,780" sap2010:WorkflowViewState.IdRef="If_7">
+                                        <If.Condition>
+                                          <InArgument x:TypeArguments="x:Boolean">
+                                            <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_130">i_dr_dataRow["사번"].ToString().Contains(str_empID)</CSharpValue>
+                                          </InArgument>
+                                        </If.Condition>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If.Then>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="376,366" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="WriteLine_15">
+                                              <InArgument x:TypeArguments="x:String">
+                                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_131">$"직원 선택 -&gt; {i_dr_dataRow["사번"].ToString()} : {str_employer}"</CSharpValue>
+                                              </InArgument>
+                                            </WriteLine>
+                                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="직원번호 더블클릭" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="334,83" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                              <ui:Click.CursorPosition>
+                                                <ui:CursorPosition Position="Center">
+                                                  <ui:CursorPosition.OffsetX>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:CursorPosition.OffsetX>
+                                                  <ui:CursorPosition.OffsetY>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:CursorPosition.OffsetY>
+                                                </ui:CursorPosition>
+                                              </ui:Click.CursorPosition>
+                                              <ui:Click.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="904f20d8-d2a5-4f9b-87e2-255f83f7be79" InformativeScreenshot="ed6ebfd16da11699fe45d4e745a15556">
+                                                  <ui:Target.Selector>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">string.Format("&lt;html app='chrome.exe' htmlwindowname='SearchEmp' title='경영관리:직원검색' /&gt;&lt;webctrl id='srchEmpList' tag='TABLE' /&gt;&lt;webctrl tableCol='2' tableRow='{0}' tag='TD' /&gt;", int_searchEmpRow)</CSharpValue>
+                                                    </InArgument>
+                                                  </ui:Target.Selector>
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:Click.Target>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:Click>
+                                            <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="476,201" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap2010:Annotation.AnnotationText="int_searchEmpRow" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Int32">
+                                                  <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_56">int_searchEmpRow</CSharpReference>
+                                                </OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Int32">
+                                                  <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_57">int_searchEmpRow+1</CSharpValue>
+                                                </InArgument>
+                                              </Assign.Value>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Assign>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </ui:InterruptibleDoWhile.Body>
+                                  <ui:InterruptibleDoWhile.Condition>
+                                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_56">int_searchEmpRow &lt; Convert.ToInt32(str_srchLoopCnt)+2</CSharpValue>
+                                  </ui:InterruptibleDoWhile.Condition>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:InterruptibleDoWhile>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:WindowScope.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:WindowScope>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="조회 버튼 클릭" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c4d0fd47-ceba-4709-a15e-3cb09afef39b" InformativeScreenshot="3ed1d02ec2f1821e415bf95ae81e5fab" Selector="&lt;webctrl parentid='btnSearch' tag='SPAN' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="데이터 조회중...">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </WriteLine>
+                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출장 목록 검색 건 확인" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="GetValue_26">
+                    <ui:GetValue.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2200af75-5806-4f75-8bd8-458b069386f5" InformativeScreenshot="a262ef179302bda04dc75fd53ee90611" Selector="&lt;webctrl aria-role='row' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='DIV' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetValue.Target>
+                    <ui:GetValue.Value>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_121">str_tripList</CSharpReference>
+                      </OutArgument>
+                    </ui:GetValue.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:GetValue>
+                  <If sap2010:Annotation.AnnotationText="레코드가 없습니다&#xA;-&gt; 검색 건이 없으므로 건너뛰기" sap:VirtualizedContainerService.HintSize="510,873" sap2010:WorkflowViewState.IdRef="If_11">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_140">!str_tripList.Contains("레코드가 없습니다")</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="444,349" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="해당 출장을 더블클릭하여 팝업을 발생시킴" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="402,138" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="56a686f0-c6f3-4726-bd8e-cc03842680ca" InformativeScreenshot="025969df2b97b93914103db394fe998f" Selector="&lt;webctrl id='list' tag='TABLE' /&gt;&lt;webctrl tableCol='10' tableRow='2' tag='TD' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:Click>
+                        <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="국내출장복명정산 팝업 확인" DisplayName="Attach Window 'chrome.exe 경영관리:국내출장복명정산'" sap:VirtualizedContainerService.HintSize="402,83" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="4133588b68562f6e92878ffb10f1faf7" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='경영관리:국내출장복명정산*' /&gt;">
+                          <ui:WindowScope.Body>
+                            <ActivityAction x:TypeArguments="x:Object">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="860,7676" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="818,90" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="국내출장복명정산 팝업">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </WriteLine>
+                                <Sequence sap2010:Annotation.AnnotationText="세부내역 추출" sap:VirtualizedContainerService.HintSize="818,2701" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="방문기관 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="GetValue_11">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl tableRow='*' tag='INPUT' aaname='방문기관' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_68">o_str_vstPlace</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_17">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_83">$"방문기관 : {o_str_vstPlace}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="방문부서 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="GetValue_12">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl name='vstDeptNm' tableRow='*' tag='INPUT' aaname='방문부서' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_69">o_str_vstDept</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_18">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_85">$"방문부서 : {o_str_vstDept}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <Sequence sap2010:Annotation.AnnotationText="출장기간" sap:VirtualizedContainerService.HintSize="450,509" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출장기간_출발" DisplayName="Get Text 'INPUT  begnDt'" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="GetValue_24">
+                                      <ui:GetValue.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b572358-0fbb-4939-b9d0-696e30b501bf" InformativeScreenshot="3f59abede84206986d3e61ca475a699f" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl id='begnDt' tableRow='*' tag='INPUT' aaname='출장출발일자' /&gt;">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:GetValue.Target>
+                                      <ui:GetValue.Value>
+                                        <OutArgument x:TypeArguments="x:String">
+                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_117">o_str_fromDate</CSharpReference>
+                                        </OutArgument>
+                                      </ui:GetValue.Value>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:GetValue>
+                                    <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출장기간_도착" DisplayName="Get Text 'INPUT  begnDt'" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="GetValue_25">
+                                      <ui:GetValue.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9b572358-0fbb-4939-b9d0-696e30b501bf" InformativeScreenshot="3f59abede84206986d3e61ca475a699f" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl id='clseDt' tableRow='*' tag='INPUT' aaname='출장도착일자' /&gt;">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:GetValue.Target>
+                                      <ui:GetValue.Value>
+                                        <OutArgument x:TypeArguments="x:String">
+                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_119">o_str_toDate</CSharpReference>
+                                        </OutArgument>
+                                      </ui:GetValue.Value>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:GetValue>
+                                    <WriteLine sap2010:Annotation.AnnotationText="" DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="388,121" sap2010:WorkflowViewState.IdRef="WriteLine_31">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <InArgument x:TypeArguments="x:String">
+                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_134">$"From: {o_str_fromDate} ~ To : {o_str_toDate}"</CSharpValue>
+                                      </InArgument>
+                                    </WriteLine>
+                                  </Sequence>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출발지 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,138" sap2010:WorkflowViewState.IdRef="GetValue_13">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl id='stptNm' tableRow='*' tag='INPUT' aaname='출발지' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_71">o_str_stPlace</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_19">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">$"출발지 : {o_str_stPlace}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="목적지 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,138" sap2010:WorkflowViewState.IdRef="GetValue_14">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl id='ndstNm' tableRow='*' tag='INPUT' aaname='목적지' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_73">o_str_ndPlace</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_20">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_90">$"목적지 : {o_str_ndPlace}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="종착지 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,138" sap2010:WorkflowViewState.IdRef="GetValue_15">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl id='psspNm' tableRow='*' tag='INPUT' aaname='종착지' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_75">o_str_psPlace</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_21">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_92">$"종착지 : {o_str_psPlace}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출장목적 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,138" sap2010:WorkflowViewState.IdRef="GetValue_16">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='mstTable' tag='TABLE' /&gt;&lt;webctrl tableRow='*' tag='INPUT' aaname='출장목적' name='bstrPurp' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_77">o_str_bizPurp</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_22">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_94">$"출장목적 : {o_str_bizPurp}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="사업코드(예산과목) 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,138" sap2010:WorkflowViewState.IdRef="GetValue_17">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl parentid='mstBox2' tag='TABLE' /&gt;&lt;webctrl tableRow='*' tag='INPUT' aaname='사업코드' name='bzId' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_79">o_str_bizID</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_23">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_96">$"사업코드(예산과목) : {o_str_bizID}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                  <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="사업명 추출" DisplayName="Get Text 'INPUT'" sap:VirtualizedContainerService.HintSize="450,138" sap2010:WorkflowViewState.IdRef="GetValue_18">
+                                    <ui:GetValue.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eabd6134-5998-47b5-b2a8-aaf24f90f74f" InformativeScreenshot="3b89f092765d9a23bb62ea653ec1bb3e" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl parentid='mstBox2' tag='TABLE' /&gt;&lt;webctrl name='bzNm' tableRow='*' tag='INPUT' aaname='사업' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:GetValue.Target>
+                                    <ui:GetValue.Value>
+                                      <OutArgument x:TypeArguments="x:String">
+                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_81">o_str_bizName</CSharpReference>
+                                      </OutArgument>
+                                    </ui:GetValue.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:GetValue>
+                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="WriteLine_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_98">$"사업명 : {o_str_bizName}"</CSharpValue>
+                                    </InArgument>
+                                  </WriteLine>
+                                </Sequence>
+                                <Assign sap2010:Annotation.AnnotationText="파일첨부 Row 인덱스 변수" sap:VirtualizedContainerService.HintSize="818,113" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Int32">
+                                      <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_96">int_empTableRow</CSharpReference>
+                                    </OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Int32">2</InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                                <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="do while 반복 횟수 추출" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="818,83" sap2010:WorkflowViewState.IdRef="GetValue_19">
+                                  <ui:GetValue.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="688d6a6d-8339-4250-8aff-b59924117764" InformativeScreenshot="28ee81daab01efd9ca2043a2aa107aed" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl aria-role='row' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='DIV' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:GetValue.Target>
+                                  <ui:GetValue.Value>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_102">str_empLoopCnt</CSharpReference>
+                                    </OutArgument>
+                                  </ui:GetValue.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:GetValue>
+                                <ui:Matches sap2010:Annotation.AnnotationText="정규식으로 숫자만 추출" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="818,83" sap2010:WorkflowViewState.IdRef="Matches_5" IsBuilderTabModified="False" Pattern="\d" RegexOption="IgnoreCase, Compiled">
+                                  <ui:Matches.FirstMatch>
+                                    <OutArgument x:TypeArguments="x:String">
+                                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_84">str_empLoopCnt</CSharpReference>
+                                    </OutArgument>
+                                  </ui:Matches.FirstMatch>
+                                  <ui:Matches.Input>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_99">str_empLoopCnt</CSharpValue>
+                                    </InArgument>
+                                  </ui:Matches.Input>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:Matches>
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="818,52" sap2010:WorkflowViewState.IdRef="WriteLine_25">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_100">$"등록된 출장자 : {str_empLoopCnt} 명"</CSharpValue>
+                                  </InArgument>
+                                </WriteLine>
+                                <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="출장자가 여러명일 경우 출장자를 찾기" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="818,4130" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
+                                  <ui:InterruptibleDoWhile.Body>
+                                    <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="784,3963" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="742,3875" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <TryCatch.Try>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="704,3647" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap2010:Annotation.AnnotationText="출장자를 찾았으면 탈출하는 변수" sap:VirtualizedContainerService.HintSize="662,113" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Boolean">
+                                                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_105">bol_checkEmp</CSharpReference>
+                                                </OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                              </Assign.Value>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Assign>
+                                            <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="이름 추출" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="662,138" sap2010:WorkflowViewState.IdRef="GetValue_20">
+                                              <ui:GetValue.Target>
+                                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="01b2dcbd-6bec-49d9-8792-7ab962b094e1" InformativeScreenshot="9b34bd5dd9df360129656132ea9fac13">
+                                                  <ui:Target.Selector>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_101">string.Format("&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='stafList' tag='TABLE' /&gt;&lt;webctrl tableCol='9' tableRow='{0}' tag='TD' /&gt;", int_empTableRow)</CSharpValue>
+                                                    </InArgument>
+                                                  </ui:Target.Selector>
+                                                  <ui:Target.TimeoutMS>
+                                                    <InArgument x:TypeArguments="x:Int32" />
+                                                  </ui:Target.TimeoutMS>
+                                                  <ui:Target.WaitForReady>
+                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                  </ui:Target.WaitForReady>
+                                                </ui:Target>
+                                              </ui:GetValue.Target>
+                                              <ui:GetValue.Value>
+                                                <OutArgument x:TypeArguments="x:String">
+                                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_86">str_checkName</CSharpReference>
+                                                </OutArgument>
+                                              </ui:GetValue.Value>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:GetValue>
+                                            <If sap2010:Annotation.AnnotationText="진행하고 있는 건과 추출한 이름이 같은지 확인" sap:VirtualizedContainerService.HintSize="662,3105" sap2010:WorkflowViewState.IdRef="If_9">
+                                              <If.Condition>
+                                                <InArgument x:TypeArguments="x:Boolean">
+                                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_102">str_employer.Trim() == str_checkName.Trim()</CSharpValue>
+                                                </InArgument>
+                                              </If.Condition>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="628,2691" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                  <Sequence.Variables>
+                                                    <Variable x:TypeArguments="x:String" Name="str_payLoopCnt" />
+                                                    <Variable x:TypeArguments="x:Int32" Name="int_payTableRow" />
+                                                  </Sequence.Variables>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="출장자 이름 더블클릭" ClickType="CLICK_DOUBLE" DisplayName="Double Click" sap:VirtualizedContainerService.HintSize="586,138" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                                    <ui:Click.CursorPosition>
+                                                      <ui:CursorPosition Position="Center">
+                                                        <ui:CursorPosition.OffsetX>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:CursorPosition.OffsetX>
+                                                        <ui:CursorPosition.OffsetY>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:CursorPosition.OffsetY>
+                                                      </ui:CursorPosition>
+                                                    </ui:Click.CursorPosition>
+                                                    <ui:Click.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a555dc3a-d76d-4827-a5bc-5afa8cdac9ba" InformativeScreenshot="6103b3e97d2246213c05640aa8073c92">
+                                                        <ui:Target.Selector>
+                                                          <InArgument x:TypeArguments="x:String">
+                                                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_103">string.Format("&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='stafList' tag='TABLE' /&gt;&lt;webctrl tableCol='9' tableRow='{0}' tag='TD' /&gt;", int_empTableRow)</CSharpValue>
+                                                          </InArgument>
+                                                        </ui:Target.Selector>
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:Click.Target>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:Click>
+                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="586,90" sap2010:WorkflowViewState.IdRef="WriteLine_26">
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_104">$"{str_employer.Trim()} == {str_checkName.Trim()} 확인 완료"</CSharpValue>
+                                                    </InArgument>
+                                                  </WriteLine>
+                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="586,25" sap2010:WorkflowViewState.IdRef="WriteLine_27">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_105">$"{str_employer} 님 식비차감 확인..."</CSharpValue>
+                                                    </InArgument>
+                                                  </WriteLine>
+                                                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'DIV'" sap:VirtualizedContainerService.HintSize="586,25" sap2010:WorkflowViewState.IdRef="GetValue_21">
+                                                    <ui:GetValue.Target>
+                                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="eb548080-3570-46ee-b68c-dc28cbdfd13e" InformativeScreenshot="ae7369263032b81384150f28eba67501" Selector="&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl aria-role='row' parentid='pg_epnsList_pager' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='DIV' /&gt;">
+                                                        <ui:Target.TimeoutMS>
+                                                          <InArgument x:TypeArguments="x:Int32" />
+                                                        </ui:Target.TimeoutMS>
+                                                        <ui:Target.WaitForReady>
+                                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                        </ui:Target.WaitForReady>
+                                                      </ui:Target>
+                                                    </ui:GetValue.Target>
+                                                    <ui:GetValue.Value>
+                                                      <OutArgument x:TypeArguments="x:String">
+                                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_107">str_payLoopCnt</CSharpReference>
+                                                      </OutArgument>
+                                                    </ui:GetValue.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:GetValue>
+                                                  <ui:Matches sap2010:Annotation.AnnotationText="정규식으로 숫자만 추출" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="586,56" sap2010:WorkflowViewState.IdRef="Matches_6" IsBuilderTabModified="False" Pattern="\d" RegexOption="IgnoreCase, Compiled">
+                                                    <ui:Matches.FirstMatch>
+                                                      <OutArgument x:TypeArguments="x:String">
+                                                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_88">str_payLoopCnt</CSharpReference>
+                                                      </OutArgument>
+                                                    </ui:Matches.FirstMatch>
+                                                    <ui:Matches.Input>
+                                                      <InArgument x:TypeArguments="x:String">
+                                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_106">str_payLoopCnt</CSharpValue>
+                                                      </InArgument>
+                                                    </ui:Matches.Input>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:Matches>
+                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="586,25" sap2010:WorkflowViewState.IdRef="WriteLine_28">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_107">$"등록된 정산내역 : {str_payLoopCnt} 건"</CSharpValue>
+                                                    </InArgument>
+                                                  </WriteLine>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">
+                                                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_110">int_payTableRow</CSharpReference>
+                                                      </OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">2</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="출장비용구분 식비를 찾고, 차감내역(B-A) 값 추출" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="586,1729" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_4">
+                                                    <ui:InterruptibleDoWhile.Body>
+                                                      <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="552,1562" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                                        <Sequence.Variables>
+                                                          <Variable x:TypeArguments="x:String" Name="str_expCatgry" />
+                                                        </Sequence.Variables>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출장비용구분 확인" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="510,138" sap2010:WorkflowViewState.IdRef="GetValue_22">
+                                                          <ui:GetValue.Target>
+                                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5d35f719-ba1a-478c-b3c4-edc7179819fa" InformativeScreenshot="dec3e8d7678e242e3a177ef35151fc43">
+                                                              <ui:Target.Selector>
+                                                                <InArgument x:TypeArguments="x:String">
+                                                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_108">string.Format("&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='epnsList' tag='TABLE' /&gt;&lt;webctrl tableCol='6' tableRow='{0}' tag='TD' /&gt;", int_payTableRow)</CSharpValue>
+                                                                </InArgument>
+                                                              </ui:Target.Selector>
+                                                              <ui:Target.TimeoutMS>
+                                                                <InArgument x:TypeArguments="x:Int32" />
+                                                              </ui:Target.TimeoutMS>
+                                                              <ui:Target.WaitForReady>
+                                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                              </ui:Target.WaitForReady>
+                                                            </ui:Target>
+                                                          </ui:GetValue.Target>
+                                                          <ui:GetValue.Value>
+                                                            <OutArgument x:TypeArguments="x:String">
+                                                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_111">str_expCatgry</CSharpReference>
+                                                            </OutArgument>
+                                                          </ui:GetValue.Value>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </ui:GetValue>
+                                                        <If sap2010:Annotation.AnnotationText="식비를 찾을 때 까지" sap:VirtualizedContainerService.HintSize="510,1296" sap2010:WorkflowViewState.IdRef="If_8">
+                                                          <If.Condition>
+                                                            <InArgument x:TypeArguments="x:Boolean">
+                                                              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_109">str_expCatgry.Trim() == "식비"</CSharpValue>
+                                                            </InArgument>
+                                                          </If.Condition>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <If.Then>
+                                                            <Sequence sap:VirtualizedContainerService.HintSize="476,882" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="출장집행비(식비차감)확인" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="GetValue_23">
+                                                                <ui:GetValue.Target>
+                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ff3df20a-4d6e-41ab-8a1a-838743a9b09b" InformativeScreenshot="7443774137b297d0235fac8b2666bfd8">
+                                                                    <ui:Target.Selector>
+                                                                      <InArgument x:TypeArguments="x:String">
+                                                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">string.Format("&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='epnsList' tag='TABLE' /&gt;&lt;webctrl tableCol='9' tableRow='{0}' tag='TD' /&gt;", int_payTableRow)</CSharpValue>
+                                                                      </InArgument>
+                                                                    </ui:Target.Selector>
+                                                                    <ui:Target.TimeoutMS>
+                                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                                    </ui:Target.TimeoutMS>
+                                                                    <ui:Target.WaitForReady>
+                                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                    </ui:Target.WaitForReady>
+                                                                  </ui:Target>
+                                                                </ui:GetValue.Target>
+                                                                <ui:GetValue.Value>
+                                                                  <OutArgument x:TypeArguments="x:String">
+                                                                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_91">o_str_tripExp</CSharpReference>
+                                                                  </OutArgument>
+                                                                </ui:GetValue.Value>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </ui:GetValue>
+                                                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="WriteLine_29">
+                                                                <InArgument x:TypeArguments="x:String">
+                                                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">$"출장집행비 : {o_str_tripExp}"</CSharpValue>
+                                                                </InArgument>
+                                                              </WriteLine>
+                                                              <ui:GetValue ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="식비 차감액 확인" DisplayName="Get Text 'TD'" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="GetValue_27">
+                                                                <ui:GetValue.Target>
+                                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ff3df20a-4d6e-41ab-8a1a-838743a9b09b" InformativeScreenshot="7443774137b297d0235fac8b2666bfd8">
+                                                                    <ui:Target.Selector>
+                                                                      <InArgument x:TypeArguments="x:String">
+                                                                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145">string.Format("&lt;html app='chrome.exe' htmlwindowname='MHJ0303P1' title='경영관리:국내출장복명정산' /&gt;&lt;webctrl id='epnsList' tag='TABLE' /&gt;&lt;webctrl tableCol='10' tableRow='{0}' tag='TD' /&gt;", int_payTableRow)</CSharpValue>
+                                                                      </InArgument>
+                                                                    </ui:Target.Selector>
+                                                                    <ui:Target.TimeoutMS>
+                                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                                    </ui:Target.TimeoutMS>
+                                                                    <ui:Target.WaitForReady>
+                                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                                    </ui:Target.WaitForReady>
+                                                                  </ui:Target>
+                                                                </ui:GetValue.Target>
+                                                                <ui:GetValue.Value>
+                                                                  <OutArgument x:TypeArguments="x:String">
+                                                                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_126">o_str_tripMealExp</CSharpReference>
+                                                                  </OutArgument>
+                                                                </ui:GetValue.Value>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </ui:GetValue>
+                                                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="WriteLine_34">
+                                                                <InArgument x:TypeArguments="x:String">
+                                                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_144">$"식비차감액 : {o_str_tripMealExp}"</CSharpValue>
+                                                                </InArgument>
+                                                              </WriteLine>
+                                                              <Assign sap2010:Annotation.AnnotationText="출장자를 찾았으면 탈출하는 변수" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Boolean">
+                                                                    <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_106">bol_checkEmp</CSharpReference>
+                                                                  </OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                                </Assign.Value>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </Assign>
+                                                              <ui:Break sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="Break_4" />
+                                                            </Sequence>
+                                                          </If.Then>
+                                                          <If.Else>
+                                                            <Sequence sap:VirtualizedContainerService.HintSize="476,201" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <Assign sap2010:Annotation.AnnotationText="int_payTableRow++" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                                <Assign.To>
+                                                                  <OutArgument x:TypeArguments="x:Int32">
+                                                                    <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_112">int_payTableRow</CSharpReference>
+                                                                  </OutArgument>
+                                                                </Assign.To>
+                                                                <Assign.Value>
+                                                                  <InArgument x:TypeArguments="x:Int32">
+                                                                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">int_payTableRow+1</CSharpValue>
+                                                                  </InArgument>
+                                                                </Assign.Value>
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                              </Assign>
+                                                            </Sequence>
+                                                          </If.Else>
+                                                        </If>
+                                                      </Sequence>
+                                                    </ui:InterruptibleDoWhile.Body>
+                                                    <ui:InterruptibleDoWhile.Condition>
+                                                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_113">int_payTableRow &lt; Convert.ToInt32(str_payLoopCnt)+2</CSharpValue>
+                                                    </ui:InterruptibleDoWhile.Condition>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:InterruptibleDoWhile>
+                                                  <Assign sap2010:Annotation.AnnotationText="int_tableRow++" sap:VirtualizedContainerService.HintSize="586,113" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">
+                                                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_97">int_empTableRow</CSharpReference>
+                                                      </OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">
+                                                        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_121">int_empTableRow+1</CSharpValue>
+                                                      </InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="476,201" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Assign sap2010:Annotation.AnnotationText="int_tableRow++" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">
+                                                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_98">int_empTableRow</CSharpReference>
+                                                      </OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">
+                                                        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">int_empTableRow+1</CSharpValue>
+                                                      </InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                            <If sap2010:Annotation.AnnotationText="출장자 loop 탈출" sap:VirtualizedContainerService.HintSize="662,83" sap2010:WorkflowViewState.IdRef="If_10">
+                                              <If.Condition>
+                                                <InArgument x:TypeArguments="x:Boolean">
+                                                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_116">bol_checkEmp</CSharpValue>
+                                                </InArgument>
+                                              </If.Condition>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="376,243" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="WriteLine_30">
+                                                    <InArgument x:TypeArguments="x:String">
+                                                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_117">$"{str_employer}님 식비차감 확인 : {o_str_tripExp}"</CSharpValue>
+                                                    </InArgument>
+                                                  </WriteLine>
+                                                  <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_5" />
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </TryCatch.Try>
+                                        <TryCatch.Catches>
+                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="708,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ActivityAction x:TypeArguments="s:Exception">
+                                              <ActivityAction.Argument>
+                                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                              </ActivityAction.Argument>
+                                            </ActivityAction>
+                                          </Catch>
+                                        </TryCatch.Catches>
+                                      </TryCatch>
+                                    </Sequence>
+                                  </ui:InterruptibleDoWhile.Body>
+                                  <ui:InterruptibleDoWhile.Condition>
+                                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_118">int_empTableRow &lt; Convert.ToInt32(str_empLoopCnt)+2</CSharpValue>
+                                  </ui:InterruptibleDoWhile.Condition>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:InterruptibleDoWhile>
+                                <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" sap2010:Annotation.AnnotationText="창 닫기" DisplayName="Close Window 'chrome.exe  경영관리:국내출장복명...'" sap:VirtualizedContainerService.HintSize="818,56" sap2010:WorkflowViewState.IdRef="CloseWindow_2" InformativeScreenshot="adf17ba2f63411f2a2d02d983ddd3cf9" Selector="&lt;ctrl name='경영관리:국내출장복명정산*' role='pane' /&gt;&lt;ctrl idx='2' role='pane' /&gt;" WaitForReady="INTERACTIVE">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CloseWindow>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:WindowScope.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:WindowScope>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,300" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_19">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">
+                              <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_124">o_bol_noData</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="WriteLine_33" Text="출장 목록 검색 결과가 없습니다." />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAbxSURBVFhHpZZtTFvnFcf9pWuypg3tmjVrGmLeEoMBG2PaJBDb2CkvyQJpvlXtFqRpmrSXT5s67a3pl0nTptXkhdAklEsCbZdG3VsrVe3AhhBCs3ZDi5ZAo21OA5hAOztNmrXhXj9n//M8j415SUe7I/30P+fh+vzPufcasC03YgF3zkzQ0zITrDLAyPshb3ImVEXTQS/NBDn3RmeClcZ0qHIvX6s/9v/HVIPbfjVU1com2kxcra2k6VovqBQM14sIVBpTAbddt/nsoTb2htlUGgWUWcYQ9dWAR0wFOPcgV8r1VMCj8AOfZ59uufzgyWES00a6sUfm8ww0cTZiuPZViLi/Qp1xrohNbV7m3ZiurXChUSzbIIO/QjDKUBlpE4r73BmdhE5ucys4V/X/HoI3h1EsvYFSjTaa9Kmm8W3aSDXPMJGmxkWTNS4BBaoer3ZhCMfSQ/Azh1FMGWU1z5ipxnIA1hq3kDUbaENlJHMxLmul49XljFDqii35LZnwucMZE4XI3khvo41Uzg1lzc1l7aIrOGO0KV3ZupAycWVLWVjbqnC/tNve/h3/nAmboqk2I7mNNpn57jfoxss9ZMYnKR3i5rskZl4la2QXWecqGcGaYn3LQ5JzHpx5BM5kTcNZ70PlS3uMbUYzjYUq1Fb6dknFxDKvr6YbJ3u0JVE8Kah/bBaYdGkqpU8xzNSLZL3jJ/OtChgxbgzhxjDQYbeqoajVXXAbu3M8LzxGzL4fBjO3io1Z39tSRuN1W+nWpTFp8JeYSd8yPqKqZ65R1T4N8qbwdYqOzsprxM0xst6ugZmLDZUOc85aDi3HEOVJGsG74H5hd4u7ZzdVANb+Jq80ZfCsBOv133TLxkein5AXhhmezso1R3ENh4h3K7PhMk1pljJOMXumpMXm7m42ALm6m4S7p1k8+Ys6ury5lN7b7BTMxGP1siFvV/l0UuLROse1eefv4C5xpC7sFdZZJ5lnS8hagtRwiWFzdTdHXScwwIkmTTO9useLIZwUe8RJN177nWy289kPqeJnyTlglNF0rutvdt6QnxFTJ4R5thhm2TgwlINS0NRQ8Yit/HhTsvz4LkpT1rWLth9spL/7yij2cIm4dWmUxuIWudF8MYnbkKTJJF7MTyZguBGGmiEJMSZInS1K2MqMr8JUImSu659/u5piVcWCN4lcnCXXTxNLA7P5dYLKoRH9QlpDRWSeKSSLQW4NaZV1gbCVdu6kUpiWGjuF1C6lj7Q30vkap2zSd/EWlaHpQtgoW7PP+zA0h3WmAEb5wjoDhgowTD7O5uABks7OHUKxk6BAqvjeUz5hxidoMpGi0p/8+zMxiscmProAkzwyB/Ogdgxhl7XKN3CdsJU8v+OvJR2NpNhBqGXuZH2+UQz2n5SbtHRcJycaO38MWD+Ful9dk59JTZ+CGRvlCnMwlyzJBrBecG4Oro/aHB0NRvGxRpqjQQ7gONYgOP/6a0/JZn/+1yyVwLwYKP1A5nP13HkvHhmH9fYWMk+vBw/B9CHBqnOyWE+vM2yOow0tIGPIyPpovQCsdPy8+ioe6rtJjh99QA6YSF0Izg/1/kdee228E4brYLYO2z6I/EGYK6y0Dqzba7MbgZziI/XJTUfqKRsH69E6wXi79ojR9/8hG//pwi0K/jJJm2CYzdeOfUjn/qlevInEu5QYLCFz4CuatTBdK9JqnX5A5hTNUX+WNz1X37rpuTraqJH5kTqRroHwGntE1/nfSgOOi5OWHIaZwEuaDr6m849bsN1aGD+QwWLt/7JUa2CNsPrXGNKcw9HeYN/Y/igxRVrTeRaisH27CPQ8Sa+MvkEX9R3hGL9+lYy/vUJP/P4H5O/wwWiNYkBr//0ytwbuFzIH2H7+f0ZFbaHWosPbKU1hG+ujxKaFhyWkNCT4ZxldwKk/FMHkS8pU6n3YVipZyFlTA/ct/k/ZHg7kFBwOxQraVOOCQyEqBKx8JpXP2ubX2Tze9TDM7hVm9F4YAlaAM605wormxLTl4sAQ9oK2YCzdMP9gkApA/qGgkHCu66XOL7+JZxxdjQHuAathuBqGUNSa2KJbvzB4iPwDtTHZ9EAt5R2sFQznafJY8XNWmR8I0ve7y8mM3I1N71EKrOgqmK4SnM9G7ob5ik83TwcPkbe/NgbIfiAg8vYHpMochvb9Kk9T076VLr+B5xxZxabQu+ZhRe6Kfbxc8+zAIM/YW2F+W/wYxi86Xs4ns28ljL4oMSMrBNdmBPStDGe+758n+G7khv3GhrCfNrT6Re6zPsF5btgn6+q2zTBZobmTzF4QuTNp9q5s/fj1z7H17QKD5Kz/9bYWDNCFAaLQJKCTp/A7PXJHItX7hZFU7wpjtu+OluVvbLP9F5lmWAkTeM7rAAAAAElFTkSuQmCC" InformativeScreenshot="fbfef64ce12cf215cffbbebf0edd73e0.jpg" Selector="&lt;html app='chrome.exe' title='경영관리*' /&gt;" Title="업무포털" Url="https://han.iitp.kr/mis/main.do" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1092,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,243" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="WriteLine_12">
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">$"Error Message : {exception.Message}"</CSharpValue>
+                </InArgument>
+              </WriteLine>
+              <Rethrow sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

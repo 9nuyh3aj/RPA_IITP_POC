@@ -1,0 +1,286 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="test" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1146,1550" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.IO</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="test" sap:VirtualizedContainerService.HintSize="632,1485" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="int_tryCnt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch sap2010:Annotation.AnnotationText="아이콘 트레이 정리" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="590,1397" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="552,1138" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" sap2010:Annotation.AnnotationText="단추 버튼 클릭" ClickType="CLICK_SINGLE" DisplayName="Click '단추  알림 펼침'" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2ba2862c-9562-4125-9c2c-0523f9827dc8" InformativeScreenshot="30c8015244f4d993b9e1fc0be7c72761" Selector="&lt;wnd app='explorer.exe' cls='Shell_TrayWnd' idx='*' /&gt;&lt;uia automationid='1502' cls='Button' name='알림 펼침' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:Click>
+          <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="510,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <Assign sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">
+                <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">int_tryCnt</CSharpReference>
+              </OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="510,675" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+            <ui:InterruptibleDoWhile.Body>
+              <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="476,539" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:HoverImage DelayBefore="{x:Null}" DelayMS="{x:Null}" KeyModifiers="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="IITP 메신저1" ContinueOnError="True" DisplayName="Hover Image 'explorer.exe'" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="HoverImage_1">
+                  <ui:HoverImage.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:HoverImage.CursorPosition>
+                  <ui:HoverImage.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACUAAAAoCAYAAAB5ADPdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMYSURBVFhH7ZdbS2JRFMf7JjkwNTDTzIcYGOhJzYqKihRUhPBBwuwh6PJQQXSBCKLwggb1kBpidvGlSKLwI/gJ+hRr/C/bx+M5KzvHoLngww/32Xut//p39jpnn3ocX36Qif7v9V8BzCukdTvotQyaZlOGgBYEgY7Raxk0Ozf1FkZdI21yuqZaaJPzn5mS1lsw6BrRa2majbW/1JS0CMRCNpA0RWBQD14JpqAXpEJ6pJyO+OdNfRjvNNXb941+/hqkZCpFV1dXlkgmU5zT2zcgar7bFMTPz8+1gtfX13Rzc8Pji4sLBmPMYU3FIQe5kua7TcUTCa0Qip6dndH29jbNz8/T7OwsgzHmsKY3Fo8nRE0JW6ZKpRIXuLy8pL29PfL5fOR2u8npdLaAOawhBrHIQa6kKWHLlPqrd3d3aXR0lFwuFxtQ4FqZwi9iEKvyPtU1FJK+ox99N2DPFLbj5OSEpqamNCNDQ0Pk8XjYAOYjkQhNTk7y9fDwMM8hB7mSZpOGIdum0MAbGxts5ODggPvn8PCQVldXqVgsUqFQoP39fTo9PaXb21uqVCq0tLRE6+vrnCtpNunQFLYgFovRxMQEPT09sYHHx0fyer2Uz+e5waPRKNVqNTby8PBAmUyG55DbLCzpWzLVDFJAeGFhgUKhEFWrVTo6OqJyuUwjIyN0f39Pi4uL3EPPz898l+7u7igcDnNOqynwej1bprAFuBuBQKD+iMdpeXmZr8fHxymbzfL85uYm36Xp6WkaGxvj5t/Z2XnZPqXVvp4tU2jWXC5HwWBQa3IF7pZqehhRTyJikdNodLOmhO3tg3ii/hLFU6WKqydRoQzNzMxwLHLM2/c6dVPq4m1TeAGiAI4Nv9/PDa+2CCYAxpibm5uj4+NjzVDj5anXM9ZrYssUjgoUQbG1tTV+/6TTadra2qKVlRUGY8zhHFSGQOOYMWtK6EyB9qbUgayODhQF6gDWj5UZ0DyQzZoSBlPgdVPap0v9c0RftB3ap8vnr6KmhGDqz9M1ZZWuKat0TVmlx4F/fSSE4I+ia8oqXVPWGKDfO2WOWSFutd8AAAAASUVORK5CYII=" />
+                  </ui:HoverImage.Image>
+                  <ui:HoverImage.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be4a70ef-714d-49c4-9eb9-33a461df6390" Selector="&lt;wnd aaname='알림 오버플로' app='explorer.exe' cls='NotifyIconOverflowWindow' /&gt;" TimeoutMS="3000">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:HoverImage.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:HoverImage>
+                <ui:HoverImage DelayBefore="{x:Null}" DelayMS="{x:Null}" KeyModifiers="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="IITP 메신저2" ContinueOnError="True" DisplayName="Hover Image 'explorer.exe'" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="HoverImage_4">
+                  <ui:HoverImage.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:HoverImage.CursorPosition>
+                  <ui:HoverImage.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANeSURBVFhH7ZbdS5NRHMf7T6wLFUq7qHyjSCGFurHM10xNBR3t2dx0m6lkvtQqmxWVBWaZFkZKmSFlOLAsJfKFImEgedOFkOBFNwXay7fzO/PZnuV55vYMw2gXH56zc36/cz47b8+zaXNULDxEb/ePMlaUE6VEEBsQvn1sQEHC28cGFnSX/wHBaFbwwBr84dPJCj7tSgSxGlgHQapXidWAr6AgQIwso5RaQe5Htb+YAJ9ufPdgwKwhqPqHafBg+K8FlXUckcBaaBCMiNyG7KQ4zNbq8N1hC4jZGh3PiYjcyvoQiaihQZAG+mI3ewb/wfjVasMye35tsXKoTHXUJsdRDuWKRdTQIOiqKfcM+pNJzJ+x4JHFhIZyI/TFBg6VqY7aKEaOp1yxiBok6HdTr2aJzRANtnzBhqFqM/KOSog/LGFnhi9UR20UQ7GUQ7liETVWzaC7UskWBfSbBqKlG7CakZLllZGJy9Bj1yG9RzolS89j5eVeLeEfgaCMst4LLdlcUxUO5jGZTAMXSWDPxCwj9uSakVpkQ4HlHPYVWtlvE5JyTEhnsZRDub5jrI0fQRlleyzf/HfNJiQwoZb2ByitccDR0QvT6evoffoC9wdHYL/Rg47eZxganYBzfBpS0zV0mYw8VzyGOiuC4kZf3IK0TM3sECQXWDE68YHLvHz7HgdKa3FvwIn6y10oOeGAa+4TbOfbMfLmHdp6BtFYJmldYnGDmFi+l+w6AzKkJryenEHrrT48cY5jN1vK4bEpHD91BY1XuzG/sAjn2DSev5pEjsnOcyhX3K86QQh6l7ifXSHp5SdxqfMhKprb2KzdQXJ+Jbr7h5Guq0fdxdts9m4i7Vg19h6pRDw7OI/ZQdG4xOIGNWgWFuwWlBQa+CFJyJSQyJ8GPovygaHTTOxgFLPYzyxnnWfQDe0jOo1T9ZX8dNJVEqe4ZmSojtoy8yUeK1/Yoj79EfQepMuWZmLxrBVFBRL250pIy/EKycKp2RLqyoxwNbLrhcWTXPAXtYYZpNcVzYaroQqdpgp8ZPfbDCv3sX3ZZqjgUJnqvjEheeaI4F91GgTlj4Ul9vqimSQBgg7An2VZjND2saBBkD6ZaCD6hFIK+EP755YGwb9NWDBUwoKhEhYMlbBgqGxwwRj8BpmxPtfYJOtvAAAAAElFTkSuQmCC" />
+                  </ui:HoverImage.Image>
+                  <ui:HoverImage.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be4a70ef-714d-49c4-9eb9-33a461df6390" Selector="&lt;wnd aaname='알림 오버플로' app='explorer.exe' cls='NotifyIconOverflowWindow' /&gt;" TimeoutMS="3000">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:HoverImage.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:HoverImage>
+                <ui:HoverImage DelayBefore="{x:Null}" DelayMS="{x:Null}" KeyModifiers="{x:Null}" SendWindowMessages="{x:Null}" sap2010:Annotation.AnnotationText="IITP 메신저3" ContinueOnError="True" DisplayName="Hover Image 'explorer.exe'" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="HoverImage_5">
+                  <ui:HoverImage.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:HoverImage.CursorPosition>
+                  <ui:HoverImage.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACEAAAAmCAYAAABK4fLXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVFhH7ZS/SwJhGMf7B4rmpqIwAquhoRZxaWhxqgZpqqm1KYpoibDIhqBf1pDVoAWBQ1AoLU0RUQRROhlCQ3qRICYO9nTPq4++573X2XGCxA0fXu95f3w/Pi93Te3dvaCJTYDevAEaRaJPPlADwQblPI9gbU30NYJEQ3TCkqhgggTWNdbWSJOoqIYC+eAS9KpqvrJ23dEcCc3vBgbp888k+BpDHCjCsMT2jIOhXisO+g1DEhgePR+H2ON+lYg4RI8aJSpg6GfCBZe7IwAgwd31KiciDtHjTxIYJj055fAxuNgYlMd7mQTcRuZLIuIQPVQSHRx8nXXgeQggNwzfkgPC6/0AmUWA1DIbr4IuwyKyBD0oQ3nKAh8DUHjogcJNZ1FCGgV4nyryNQ2PkVFDIpwEoRZ487dB7qwV0nvNjMxhC4SXbKxWzd1mF0xOuGF2boGhPl+NQIIoSuBBWzs+8Pl2y+Cz2+VU1Hhw/iUaNUMCqYjk83kFpycnqhqBIrGYKRLKa8EDpWSShaTTaQgEA+XQbDbLajiPoISJnVDCi5AEhvOkJKm+EgiJ0HVQOHWhDhLKKyHw8FAoVJYgAfp9fHwE8fhr/TpBHPj9CgFeBDvhWfHUXwKDRBKI17sm3KOFYQn8l78h2qOFYQkzsSQIS4KwJAhLgmgACTv8AHgZIpNUFQ3+AAAAAElFTkSuQmCC" />
+                  </ui:HoverImage.Image>
+                  <ui:HoverImage.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="be4a70ef-714d-49c4-9eb9-33a461df6390" Selector="&lt;wnd aaname='알림 오버플로' app='explorer.exe' cls='NotifyIconOverflowWindow' /&gt;" TimeoutMS="3000">
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:HoverImage.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:HoverImage>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">
+                      <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">int_tryCnt</CSharpReference>
+                    </OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">
+                      <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">int_tryCnt+1</CSharpValue>
+                    </InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:InterruptibleDoWhile.Body>
+            <ui:InterruptibleDoWhile.Condition>
+              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">int_tryCnt &lt; 3</CSharpValue>
+            </ui:InterruptibleDoWhile.Condition>
+          </ui:InterruptibleDoWhile>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="556,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
