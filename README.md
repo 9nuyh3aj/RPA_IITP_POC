@@ -1,4 +1,4 @@
-// IITP RPA 신규 구축 POC 과제
+IITP RPA 신규 구축 POC 과제
 
 1. 유연근무제 문자 알림 서비스
 
